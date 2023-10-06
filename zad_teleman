@@ -1,0 +1,19 @@
+import math
+
+serial_name = input("Име на сериала: ")
+num_seasons = int(input("Брой сезони: "))
+num_episodes_per_season = int(input("Брой епизоди на сезон: "))
+episode_duration = int(input("Продължителност на епизод: "))
+
+ad_duration = 0.25 * episode_duration
+
+special_episode_duration = episode_duration + 12
+
+total_duration = (
+    num_seasons * (num_episodes_per_season * episode_duration + special_episode_duration)
+    - num_seasons * special_episode_duration
+    + num_seasons * (num_episodes_per_season - 1) * ad_duration
+)
+
+total_duration = math.floor(total_duration)
+print(f"I needed {total_duration} minutes to watch the {serial_name} all series.")
